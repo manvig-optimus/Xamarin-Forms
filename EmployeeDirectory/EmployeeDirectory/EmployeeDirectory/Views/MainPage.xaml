@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EmployeeDirectory"
+             x:Class="EmployeeDirectory.MainPage"
+             Title="Add Employee">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="WidthRequest" Value="130" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="WidthRequest" Value="190" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="WidthRequest" Value="190" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Frame BorderColor="Blue">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="First Name:" />
+                        <Entry Placeholder="Enter First Name" Text="{Binding FirstName}" x:Name="firstName" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Last Name:" />
+                        <Entry Placeholder="Enter Last Name" Text="{Binding LastName}" x:Name="lastName" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Address:" />
+                        <Entry Text="{Binding Address}" x:Name="address" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Gender:" />
+                        <Picker Title="Select Gender" SelectedItem="{Binding Gender}" x:Name="gender">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Female</x:String>
+                                    <x:String>Male</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Age:" WidthRequest="230" />
+                        <Label Text="{Binding Source={x:Reference Name=ageStepper}, Path=Value}" HorizontalOptions="End" WidthRequest="50" />
+                        <Stepper x:Name="ageStepper" Increment="1" Minimum="20" Maximum="80" Value="{Binding Age}" HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Department:" />
+                        <Picker x:Name="department" Title="Select Department" ItemsSource="{Binding Departments}" SelectedItem="{Binding Department}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Designation:" />
+                        <Picker x:Name="designation" Title="Select Designation" ItemsSource="{Binding Designations}" SelectedItem="{Binding Designation}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Interested in joining Company Club:" WidthRequest="300" />
+                        <Switch IsToggled="{Binding HasInterestInClub}" x:Name="interestedInClub" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="30,40,0,0">
+                        <Button Text="Save" x:Name="btnSaveEmployee" Clicked="btnSaveEmployee_Clicked" />
+                        <Button Text="Reset" x:Name="btnResetData" Clicked="btnResetData_Clicked" />
+                        <Button Text="Cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

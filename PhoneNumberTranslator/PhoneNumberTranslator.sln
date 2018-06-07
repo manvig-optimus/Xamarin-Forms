@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneNumberTranslator.Android", "PhoneNumberTranslator\PhoneNumberTranslator.Android\PhoneNumberTranslator.Android.csproj", "{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneNumberTranslator", "PhoneNumberTranslator\PhoneNumberTranslator\PhoneNumberTranslator.csproj", "{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632CC28D-9EC0-4C19-90DB-1B71DB00DDD9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF0A75F-BF6B-4BF9-A910-A83D7465AD7F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9C0214D-B331-42AE-AE97-B2BA88AB0847}
+	EndGlobalSection
+EndGlobal
