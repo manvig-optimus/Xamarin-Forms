@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmployeeDirectory.Views.EmployeeList"
+             Title="Employee Directory">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Button Text="+" Clicked="Button_Clicked" FontSize="Medium" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Add Employee" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" />
+            </Grid>
+
+            <ListView ItemsSource="{Binding Employees}" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected"
+                      x:Name="listOfEmployees"
+                      RefreshCommand="{Binding Employees}" IsPullToRefreshEnabled="True" Refreshing="ListView_Refreshing">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Edit" CommandParameter="{Binding EmployeeId}" Clicked="MenuItemEdit_Clicked" />
+                                <MenuItem Text="Delete" CommandParameter="{Binding EmployeeId}" Clicked="MenuItemDelete_Clicked" />
+                            </ViewCell.ContextActions>
+                            <ViewCell.View>
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding FirstName}" TextColor="Blue" FontSize="14" HorizontalTextAlignment="End" />
+                                        <Label Text="{Binding LastName}" TextColor="Blue" FontSize="14" HorizontalTextAlignment="Start" />
+                                    </StackLayout>
+                                    <Label Text="{Binding Designation}" TextColor="Red" FontSize="12" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>        
+    </ContentPage.Content>
+</ContentPage>
