@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocumentManagementSystem.Views.UserProfile"
+             Title="User Profile">
+    <ContentPage.Content>
+            <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Image Source="{Binding Picture}"  />
+                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2.5*" />
+                    </Grid.ColumnDefinitions>                    
+                    <Label Text="Name:" FontAttributes="Bold" FontSize="18" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="{Binding Name}" FontSize="16" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="Email:" FontAttributes="Bold" FontSize="18" Grid.Row="1" Grid.Column="0" />
+                    <Label Text="{Binding Email}" FontSize="16" Grid.Row="1" Grid.Column="1" />                    
+                </Grid>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

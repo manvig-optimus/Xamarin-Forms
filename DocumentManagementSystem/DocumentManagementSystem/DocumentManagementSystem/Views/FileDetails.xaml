@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocumentManagementSystem.Views.FileDetails"
+             Title="Details" BackgroundColor="White">
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20">
+            <Grid RowSpacing="20" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="30">
+                    <StackLayout  Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="File Name: " FontAttributes="Bold" HorizontalOptions="Start" Grid.Column="0"/>
+                            <Label Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Name}" TextColor="Blue" TextDecorations="Underline">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding OpenFileCommand}"
+                                                          CommandParameter="{Binding WebViewLink}" />
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                        
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Last Modified By: " FontAttributes="Bold" HorizontalOptions="Start" Grid.Column="0" />
+                            <Label Text="{Binding ModifiedBy}"  Grid.Column="1"/>
+                        </Grid>                        
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Last Modified Time: " FontAttributes="Bold" HorizontalOptions="Start" Grid.Column="0" />
+                            <Label Text="{Binding ModifiedTime}"  Grid.Column="1"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>               
+                <StackLayout Grid.Row="1" Spacing="20">
+                    <Label Text="Permissions" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large" />
+                    <ListView ItemsSource="{Binding Permissions}" SeparatorVisibility="None" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Blue" Margin="0,3,0,0">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="3*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding PhotoLink}" Aspect="AspectFit" Grid.RowSpan="2" />
+                                            <Label Text="{Binding EmailAddress}" Grid.Row="0" Grid.Column="1" FontSize="16" />
+                                            <Label Text="{Binding Role}" Grid.Row="1" Grid.Column="1" TextColor="RosyBrown" FontSize="16" FontAttributes="Bold" />
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                                <!--<ImageCell ImageSource="{Binding PhotoLink}"  Text="{Binding EmailAddress}" Detail="{Binding Role}" />-->
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>                
+            </Grid>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

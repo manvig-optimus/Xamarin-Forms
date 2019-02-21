@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocumentManagementSystem.Views.FilesListing"
+             Title="Files">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Picker ItemsSource="{Binding FileTypes}" SelectedIndexChanged="Picker_SelectedIndexChanged"
+                    SelectedItem="{Binding SelectedFilter}"/>
+            <ListView x:Name="filesList" ItemsSource="{Binding Files}" HasUnevenRows="True" SeparatorVisibility="None" 
+                      ItemSelected="ListView_ItemSelected">                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="0,5,0,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding IconLink}" Aspect="AspectFit" Grid.Row="0" Grid.Column="0" />
+                                    <Label Text="{Binding Name}" TextColor="Black" FontFamily="Arial" FontSize="16"
+                                            Grid.Row="0" Grid.Column="1" />
+                                </Grid>                              
+                            </Frame>                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

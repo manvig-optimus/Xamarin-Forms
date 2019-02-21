@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocumentManagementSystem.Views.MainPageMaster"
+             Title="DMS">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Microsoft.png" Text="Item 1" Priority="0" />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+      <StackLayout Padding="20" BackgroundColor="White">
+        <ListView x:Name="MenuItemsListView"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="true"
+                  ItemsSource="{Binding MenuItems}">
+          <ListView.Header>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100"/>
+              </Grid.RowDefinitions>
+              <Label
+                  Grid.Row="0"
+                  Text="Document Management"
+                  FontFamily="Arial" FontSize="20" FontAttributes="Bold"/>
+            </Grid>
+          </ListView.Header>
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                  <Label VerticalOptions="FillAndExpand" 
+                        VerticalTextAlignment="Center" 
+                        Text="{Binding Title}" Margin="0,0,0,50"
+                        FontFamily="Arial" FontSize="18" FontAttributes="Bold"/> 
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>      
+            <Button Text="Sign Out" Command="{Binding HandleSignOutOperation}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
